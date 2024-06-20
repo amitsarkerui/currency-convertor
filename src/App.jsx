@@ -1,36 +1,35 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
+import InputBox from "./components/InputBox";
 
 function App() {
-  const [count, setCount] = useState(0);
   const currency = useCurrencyInfo("usd");
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="bg-[url('./assets/bg/currency-bg.jpg')] w-full h-screen bg-cover bg-bottom">
+      <div className="w-full h-screen backdrop-blur-sm bg-gray-950 bg-opacity-60 flex justify-center items-center">
+        <div className="bg-[#180D3A] bg-opacity-90 w-full p-6 max-w-xl text-white rounded-xl border-2 border-gray-700">
+          <InputBox />
+          <div className="mx-auto text-center mt-7 mb-2 cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="size-10 inline bg-green-500 p-2 rounded-full"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5"
+              />
+            </svg>
+          </div>
+          <InputBox />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   );
 }
 
